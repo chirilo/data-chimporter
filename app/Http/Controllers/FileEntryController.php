@@ -75,8 +75,13 @@ class FileEntryController extends Controller {
 		$reader->setHeaderRowNumber(0); // if has header
 		$columnheaders = $reader->getColumnHeaders();
  //               $csvcolumnheaders = explode(",", $columnheaders[0]);
-		$csvcolumnheaders = $columnheaders;
-
+		$csvcolumnheaders = [];
+		foreach( $columnheaders as $colheader ){
+			if( $colheader != '' || $colheader != null ){
+				$csvcolumnheaders[] = $colheader;
+			}
+		}
+//		echo "<pre>"; print_r( $csvcolumnheaders ); echo "</pre>"; exit();
 		// store csv rows to an array
 		$csvarray = [];
 		foreach( $reader as $k => $row ){
