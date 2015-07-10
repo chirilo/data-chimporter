@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://app.chimporter.kum',
+	'url' => 'http://chimporter.iamchiriru.com',
 
 	/*
 	|--------------------------------------------------------------------------

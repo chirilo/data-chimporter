@@ -73,15 +73,25 @@ class FileEntryController extends Controller {
 		$reader = new CsvReader($file);
 		$reader->setStrict(false);
 		$reader->setHeaderRowNumber(0); // if has header
+		$columnheaders = $reader->getColumnHeaders();
+ //               $csvcolumnheaders = explode(",", $columnheaders[0]);
+		$csvcolumnheaders = $columnheaders;
+
 		// store csv rows to an array
 		$csvarray = [];
-		foreach( $reader as $row ){
-			$csvarray[] = $row;
+		foreach( $reader as $k => $row ){
+			//if( $row != '' ){
+				$csvarray[] = $row;
+				
+			//}
 		}
-
+//		print_r($csvcolumnheaders);
+//		echo "<pre>";
+//		print_r($csvarray);
+//		echo "</pre>";exit();
 		// get the headers of the imported file; returns array
-		$columnheaders = $reader->getColumnHeaders();
-		$csvcolumnheaders = explode(",", $columnheaders[0]);
+		//$columnheaders = $reader->getColumnHeaders();
+		//$csvcolumnheaders = explode(",", $columnheaders[0]);
 
 		// get the column names of the selected base table
 		$basetable = ucfirst($req['table']);
