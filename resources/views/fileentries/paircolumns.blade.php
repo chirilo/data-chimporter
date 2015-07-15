@@ -71,6 +71,7 @@
 
                                         <div class="form-row clear">
                                             <!-- <input type="hidden" name="token" value="1f3b720a1acc4004e32cc6f9ece246d1"> -->
+                                            <input type="hidden" name="alldata" value="{{ json_encode($alldata) }}">
                                             <input type="hidden" name="import" value="save">
                                             <input type="submit" value="Import">
                                         </div>                

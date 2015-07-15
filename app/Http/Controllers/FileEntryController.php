@@ -19,8 +19,11 @@ use Illuminate\Support\Facades\Session;
 
 use Ddeboer\DataImport\Workflow;
 use Ddeboer\DataImport\Reader\CsvReader;
+use Ddeboer\DataImport\Reader\ArrayReader;
 use Ddeboer\DataImport\Writer\CsvWriter;
+use Ddeboer\DataImport\Writer\PdoWriter;
 use Ddeboer\DataImport\Filter;
+use Ddeboer\DataImport\Writer\AbstractStreamWriter;
 
 
 class FileEntryController extends Controller {
@@ -36,7 +39,7 @@ class FileEntryController extends Controller {
             
 		$entries = Fileentry::all();
 
-		return view('fileentries.index', compact('entries'))->with('user',$user);;
+		return view('fileentries.index', compact('entries'))->with('user',$user);
 	}
 
 	
@@ -53,85 +56,73 @@ class FileEntryController extends Controller {
 	public function add() {
 		
 		$req = Request::all();
-
-		
 		
 		$file = Request::file('filefield');
 		if( $file !== null ){
 			$extension = $file->getClientOriginalExtension();
-		Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
-		$entry = new Fileentry();
-		$entry->mime = $file->getClientMimeType();
-		$entry->original_filename = $file->getClientOriginalName();
-		$entry->filename = $file->getFilename().'.'.$extension;
+			Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
+			$entry = new Fileentry();
+			$entry->mime = $file->getClientMimeType();
+			$entry->original_filename = $file->getClientOriginalName();
+			$entry->filename = $file->getFilename().'.'.$extension;
 
-		$entry->save();
+			$entry->save();
 
-		// CsvReader
-		$filename = Request::file('filefield');
-		$file = new \SplFileObject($filename);
-		$reader = new CsvReader($file);
-		$reader->setStrict(false);
-		$reader->setHeaderRowNumber(0); // if has header
-		$columnheaders = $reader->getColumnHeaders();
- //               $csvcolumnheaders = explode(",", $columnheaders[0]);
-		$csvcolumnheaders = [];
-		foreach( $columnheaders as $colheader ){
-			if( $colheader != '' || $colheader != null ){
-				$csvcolumnheaders[] = $colheader;
+			// CsvReader
+			$filetoread = new \SplFileObject($file);
+			$reader = new CsvReader($filetoread);
+			$reader->setStrict(false);
+			$reader->setHeaderRowNumber(0); // if has header
+			$columnheaders = $reader->getColumnHeaders();
+			$csvcolumnheaders = [];
+			foreach( $columnheaders as $colheader ){
+				if( $colheader != '' || $colheader != null ){
+					$csvcolumnheaders[] = $colheader;
+				}
 			}
-		}
-//		echo "<pre>"; print_r( $csvcolumnheaders ); echo "</pre>"; exit();
-		// store csv rows to an array
-		$csvarray = [];
-		foreach( $reader as $k => $row ){
-			//if( $row != '' ){
-				$csvarray[] = $row;
-				
-			//}
-		}
-//		print_r($csvcolumnheaders);
-//		echo "<pre>";
-//		print_r($csvarray);
-//		echo "</pre>";exit();
-		// get the headers of the imported file; returns array
-		//$columnheaders = $reader->getColumnHeaders();
-		//$csvcolumnheaders = explode(",", $columnheaders[0]);
+	//		echo "<pre>"; print_r( $csvcolumnheaders ); echo "</pre>"; exit();
+			// store csv rows to an array
+			/*$csvarray = [];
+			foreach( $reader as $k => $row ){
+				//if( $row != '' ){
+					$csvarray[] = $row;
+					
+				//}
+			}*/
+	//		print_r($csvcolumnheaders);
+	//		echo "<pre>";
+	//		print_r($csvarray);
+	//		echo "</pre>";exit();
+			// get the headers of the imported file; returns array
+			//$columnheaders = $reader->getColumnHeaders();
+			//$csvcolumnheaders = explode(",", $columnheaders[0]);
 
-		// get the column names of the selected base table
-		$basetable = ucfirst($req['table']);
-		$basetablemodel = User::all()->toArray();
-		if( $basetable == 'Users' || $basetable == 'User'){
-			$basetablemodel = User::all()->toArray();	
-		}
-		elseif( $basetable == 'Inventory' || $basetable == 'inventory' ){
-			$basetablemodel = Inventory::all()->toArray();
-		}
-		elseif( $basetable == 'Fileentries' || $basetable == 'fileentry' ){
-			$basetablemodel = Fileentry::all()->toArray();
-		}
-		// make the table field names into an array
-		$basetablecolumnheaders = []; 
-		foreach( $basetablemodel[0] as $k => $col ){
-			$basetablecolumnheaders[] = $k;
-		}
+			// get the column names of the selected base table
+			$basetable = ucfirst($req['table']);
+			$basetablemodel = [];
+			$basetablemodel = $this->getBaseTableColNames( $basetable );
+			$basetablecolumnheaders = [];
+			foreach( $basetablemodel[0] as $k => $col ){
+				$basetablecolumnheaders[] = $k;
+			}
 
-		// combine column headers
-		$mergedcolumnheaders['csvfilecolheaders'] = $csvcolumnheaders;
-		$mergedcolumnheaders['basetablecolheaders'] = $basetablecolumnheaders;
-		
+			// combine column headers
+			$mergedcolumnheaders['csvfilecolheaders'] = $csvcolumnheaders;
+			$mergedcolumnheaders['basetablecolheaders'] = $basetablecolumnheaders;
+			
 
-		$alldata = [];
-		$alldata['columnheaders'] = $mergedcolumnheaders;
-		$alldata['csvfile'] = array(
-			'filename' => $file->getFilename().'.'.$extension,
-			'filetype' => $req['file_type'],
-		);
-		$alldata['csvarray'] = $csvarray;
+			$alldata = [];
+			$alldata['columnheaders'] = $mergedcolumnheaders;
+			$alldata['csvfile'] = array(
+				'filename' => $file->getFilename().'.'.$extension,
+				'filetype' => $req['file_type'],
+				'basetable' => $basetable
+			);
+			//$alldata['csvarray'] = $csvarray;
 
-		Session::put('alldata', $alldata);
-		
-		return Redirect::to('paircolumns')->with('csvtomysql', $alldata);
+			Session::put('alldata', $alldata);
+			
+			return Redirect::to('paircolumns')->with('csvtomysql', $alldata);
 
 		}
 		
@@ -154,12 +145,95 @@ class FileEntryController extends Controller {
 		return view('fileentries.paircolumns');
 		//return redirect('csvtomysqlimport');
 	}
+	// returns an array result from a csvreader input
+	public function csvToArray($reader, $paired_columns){
+		$csv_arr = [];
+		//print_r( $reader );print_r( $paired_columns );
+		//foreach( $paired_columns as $k => $paired_column ){
+			//$arr =[];
+		foreach( $reader as $kk => $val ){
+			$arr = [];
+			foreach($paired_columns as $k => $paired_column){
+				$arr[$k] = $val[$paired_column] ? $val[$paired_column] : '';
+
+			}
+			// /Inventory::insert(());
+			Inventory::insert(
+				array('linecode' => $arr['linecode']),
+				array('sku' => $arr['sku']),
+				array('descript' => $arr['descript']),
+				array('cost' => $arr['cost']),
+				array('coreprice' => $arr['coreprice']),
+				array('minqty' => $arr['minqty']),
+				array('qtyavail' => $arr['qtyavail'])
+				
+			);
+			//Inventory::insert( array($arr));
+			//Inventory::disableQueryLog();
+			$csv_arr[] = $arr;
+		}
+		$reader = new ArrayReader($csv_arr);
+			
+		return $csv_arr;
+	}
+
+	
+
+	public function getBaseTableColNames( $basetablename ){
+		// get the column names of the selected base table
+		//$basetable = ucfirst($basetablename);
+		///basetablemodel = Inventory::all()->toArray(); //default
+		switch ($basetablename) {
+			case 'User':
+				# code...
+				$basetablemodel = Inventory::get(array('linecode','sku','descript','cost','coreprice','minqty','qtyavail'))->toArray();
+				break;
+			case 'Inventory':
+				# code...
+				$basetablemodel = Inventory::get(array('linecode','sku','descript','cost','coreprice','minqty','qtyavail'))->toArray();
+				break;
+			case 'Fileentry':
+				# code...
+				$basetablemodel = Inventory::get(array('linecode','sku','descript','cost','coreprice','minqty','qtyavail'))->toArray();
+				break;
+			default:
+				# code...
+				$basetablemodel = Inventory::get(array('linecode','sku','descript','cost','coreprice','minqty','qtyavail'))->toArray();
+				break;
+		}
+		return $basetablemodel;
+	}
 
 	// filentry/import
 	public function importdata(){
 		
+
+
+		$importdata_session = Session::get('csvtomysql');
+		$allrequest = Request::all();
+	    $paired_columns = $_POST['column'];
+	    $post_alldata = json_decode( $_POST['alldata'] );
+	    //$csvfile = $post_alldata->csvfile->;
+	    //$csvfilename = $csvfile;
+	    $uploaded_path = storage_path().'/app/'.$post_alldata->csvfile->filename;
+	    $uploaded_file = File::get( $uploaded_path );
+	    $filetoread = new \SplFileObject($uploaded_path);
+		$reader = new CsvReader($filetoread);
+		$reader->setStrict(false);
+		$reader->setHeaderRowNumber(0);
+		
+	    $csvtoarraydata = $this->csvToArray($reader, $paired_columns);
+	    
+	    $alldata = array(
+	    	'csvtoarraydata' => $csvtoarraydata,
+	    	'reader'		=> $reader,
+	    	'paired_columns' => $paired_columns
+	    );
+
 		//return redirect('csvtomysqlimport');
-		return view('fileentries.csvtomysqlimport');
+		//return view('fileentries.csvtomysqlimport');
+		/*return Redirect::to('csvtomysqlimport')->with('importedcsvdata', $csvtoarraydata);*/
+		return view('fileentries.csvtomysqlimport')->with('importedcsvdata', $alldata);
 	}
 
 	public function get($filename){
@@ -171,24 +245,5 @@ class FileEntryController extends Controller {
 		return (new Response($file, 200))
               ->header('Content-Type', $entry->mime);
 
-	}
-
-
-	public function readfile($filename){
-
-		// CsvReader
-		$file = new \SplFileObject($filename);
-		$reader = new CsvReader($file);
-		$reader->setStrict(false);
-		$reader->setHeaderRowNumber(0); // if has header
-
-		// get the headers of the imported file; returns array
-		$columnheaders = $reader->getColumnHeaders();
-		$columnheaders = explode(',', $columnheaders[0]);
-
-
-		// convert csv to array 
-		$csvarray = array();
-		
 	}
 }

@@ -17,15 +17,16 @@
                                     <div class="msg error">
                                     </div> <!-- .msg -->
 
+                                    <!-- <form action="{{route('addentry', [])}}" method="post" enctype="multipart/form-data"> -->
                                     <form action="{{route('addentry', [])}}" method="post" enctype="multipart/form-data">
                                         <div class="plain-text clear">
                                             <p>
                                                 <sup>**</sup> The server is restricted, so 10.000 row can be parset at a time. This is a server settings parameter.                        </p>
                                         </div>
                                         <div class="form-row clear">
-                                            <label for="filename">
+                                            <label for="filefield">
                                                 CSV File                        </label>
-                                            <input type="file" id="filename" name="filefield" value="" placeholder="Select a .csv file to import" />
+                                            <input type="file" id="filefield" name="filefield" value="" placeholder="Select a .csv file to import" />
 
                                         </div>
                                         <div class="form-row clear">

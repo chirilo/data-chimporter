@@ -14,7 +14,7 @@
 			                <li>
 			                    <a href="/csvtomysql" target="_self">CSV <em>to</em> MYSQL</a>
 			                </li>
-			                <li>
+			                <!-- <li>
 			                    <a href="#" target="_self">MYSQL <em>to</em> CSV</a>
 			                </li>
 			                <li>
@@ -28,7 +28,7 @@
 			                </li>
 			                <li>
 			                    <a href="#" target="_self">MYSQL <em>to</em> XML</a>
-			                </li>
+			                </li> -->
 			            </ul>
 
 			        </section>
