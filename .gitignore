@@ -2,3 +2,7 @@
 /node_modules
 .env
 /verblight
+/app/Http/Controllers/TodosController.php
+/app/Http/Controllers/TodoAppController.php
+/app/Http/Controllers/EventsController.php
+
