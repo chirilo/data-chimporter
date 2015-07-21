@@ -1,6 +1,8 @@
-<?php namespace App\Http\Controllers;
+<?php 
 
-class WelcomeController extends Controller {
+namespace App\Http\Controllers\Chimporter;
+
+class ChimporterController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,9 +30,10 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function welcome()
 	{
-		return view('welcome');
+		//return view('chimporter/welcome');
+		return view('chimporter/launcher');
 	}
 
 }

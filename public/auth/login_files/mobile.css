@@ -1,0 +1,821 @@
+/**
+    Shield styling for mobile devices.
+    This will override the styles included in ./css/shield_style.css
+    when the device width is less than the media query.
+**/
+
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+/*
+    ======= RESET DESKTOP STYLES ======
+    Here we put general styles that would reset the desktop styles to default(auto), 0, none, etc.
+*/
+
+html { background: #42b2e4; }
+
+hr {
+    border-left: none;
+    border-right: none;
+}
+
+.form-wrapper,
+.inner {
+    background: #fff;
+    border: none;
+}
+
+#confirm_email,
+.optout_success .inner.module,
+.inner.module {
+    width: auto;
+    height: auto;
+    padding: 0;
+}
+
+.form-wrapper,
+.form-wrapper.optout { width: 100%; }
+
+/*
+    ======= MOBILE SWITCHES ======
+    Here we have styles that would turn off .desktop-only class and turn on .mobile-only class( which is turned off on desktop)
+*/
+.desktop-only { display: none !important; }
+.mobile-only { display: block !important; }
+span.mobile-only { display: inline !important; }
+
+/*
+    ======= UTILITIES ======
+*/
+.hide { display: none; }
+
+/*
+    ======= MOBILE GENERAL OVERRIDES ======
+    We put general mobile styles here, that would overwrite the desktop styles.
+*/
+
+body,
+button,
+input {
+    font-family: 'proxima-nova-regular','helvetica neue',helvetica,arial,sans-serif;
+}
+
+section.center { padding: 0; }
+
+input {
+    -webkit-appearance: none;
+    text-transform: none;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: button;
+    position: relative;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    border: 2px solid #666;
+    outline: none;
+    background-color: #fff;
+}
+
+input[type="checkbox"]:checked {
+    background-image: url('../login_files/images/icn-checkbox.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+button.btn.blue,
+input.btn.blue,
+.optout input.btn.blue,
+a.btn.blue {
+    width: 100%;
+    height: 36px;
+    float: right;
+    border: none;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    background: #42b2e4;
+    padding: 0;
+    line-height: 36px;
+
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+          box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+
+    /*
+    -moz-box-shadow: 0 0 0;
+    -webkit-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;
+    border: 1px solid #ccc;
+    background-color: #ffcc00;
+    background-image: -moz-linear-gradient(top, #fffec5, #ffe264);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fffec5), to(#ffe264));
+    background-image: -webkit-linear-gradient(top, #fffec5, #ffe264);
+    background-image: linear-gradient(to bottom, #fffec5, #ffe264);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    */
+}
+
+a.btn.blue {
+    margin: 12px 0;
+    text-align: center;
+}
+
+section.center input.btn.blue {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header,
+.optout header {
+    font-family: 'proxima-nova-bold', 'helvetica neue', helvetica, arial, sans-serif;
+    font-size: 14px;
+}
+
+h4,
+.optout h4 {
+    font-family: 'proxima-nova-bold', 'helvetica neue', helvetica, arial, sans-serif;
+    margin: 24px 0 12px;
+    font-size: 14px;
+}
+
+p { font-size: 14px; }
+
+.container { width: 100%; }
+
+#content {
+    max-width: 100%;
+    min-height: 0;
+    padding: 48px 16px 0;
+    overflow: hidden;
+    margin-top: 46px;
+    background: #fff;
+    border-top: 1px solid #ccaa00;
+}
+.highlight,
+.optout .highlight,
+.optout_success .inner.module {
+    font-size: 22px;
+    font-family: 'proxima-nova-light', 'helvetica neue', helvetica, arial, sans-serif;
+    letter-spacing: -.05ex;
+}
+
+.clearfix.submit,
+.optout .clearfix.submit,
+.optout fieldset.preference {
+    border-bottom: none;
+    border-width: 2px;
+    border-color: #999;
+    width: 100%;
+    margin-left: 0;
+}
+
+.clearfix.submit,
+.optout .clearfix.submit {
+    padding-top: 24px;
+    padding-bottom: 36px;
+}
+
+/*
+    ======= HEADER(COMMON) ======
+*/
+#ls-banner {
+    height: 48px;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: #42b2e4;
+    /*
+    background-image: -moz-linear-gradient(top, #fee748, #face0f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fee748), to(#face0f));
+    background-image: -webkit-linear-gradient(top, #fee748, #face0f);
+    background-image: linear-gradient(to bottom, #fee748, #face0f);
+    */
+}
+
+#ls-banner .container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+#ls-banner header {
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+     -moz-box-flex: 1;      /* OLD - Firefox 19- */
+      -webkit-flex: 1;      /* Chrome */
+          -ms-flex: 1;      /* IE 10 */
+              flex: 1;
+    font-size: 18px;
+    font-family: inherit;
+    line-height: 48px;
+    text-align: center;
+    margin-left: -44px;
+}
+
+#ls-banner .logo {
+    width: 36px;
+    height: 32px;
+    margin: 8px 0 0 10px;
+    background-position: center center;
+    background-color: #000000;
+    background-size: 86%;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+
+    -webkit-box-shadow: 0 0 0;
+    -moz-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;
+}
+
+/*
+    ======= FOOTER(COMMON) ======
+*/
+#ls-footer {
+    padding: 45px 0 0;
+    background: #42b2e4;
+    color: #1f1f1f;
+    font-size: 12px;
+}
+
+#ls-footer section a {
+    color: inherit;
+    font-size: inherit;
+}
+
+#ls-footer a span { color: #ed5400; }
+
+#ls-footer .container {
+    width: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#ls-footer p {
+    font-size: 9px;
+    color: inherit;
+}
+
+/*
+    ======= ERROR  ======
+*/
+#content .form_error {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    top: auto;
+    right: auto;
+}
+#content .form_error:after { display: none; }
+
+
+/*
+    ======= MOBILE COMMON STYLES ======
+*/
+#content.confirm_email,
+#content.login_form,
+#content.forgot_password_form,
+#content.forgot_password_confirmation,
+#content.reset_password,
+#content.registration_form {
+    position: relative;
+    overflow: visible;
+}
+
+#content .form-wrapper.login label input,
+#content .form-wrapper.reset-password label input,
+#content .form-wrapper.forgot-password label input,
+#content.registration_form .form-wrapper.join label input {
+    width: 100%;
+    padding: 9px 11px 9px;
+    line-height: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+    ======= OPT OUT PAGE ======
+*/
+
+.optout.form-wrapper section.center { padding: 0; }
+.optout.form-wrapper section.center > p {
+    padding-bottom: 12px;
+    border-width: 2px;
+    border-color: #999;
+}
+
+.optout form p { margin-top: 12px; }
+
+.optout fieldset { padding: 20px 0 0; }
+
+.optout fieldset.unsubscribe .description { border-width: 0; }
+
+.optout fieldset,
+.optout fieldset .clearfix { position: relative; }
+
+.optout .description {
+    color: #2f2f2f;
+    padding-bottom: 24px;
+    width: 88%;
+}
+
+.optout .sub {
+	padding-left: 16%;
+}
+
+.optout_success p { margin-top: 24px; }
+
+/*
+    ======= CONFIRM EMAIL PAGE ======
+*/
+
+
+/*
+    ======= LOGIN PAGE ======
+*/
+
+#content.login_form {
+    padding-top: 20px;
+    padding-bottom: 16px;
+    background:#f7f6f2;
+}
+
+#content.login_form .form_error {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.form-wrapper.login {
+    width: 100%;
+    height: auto;
+    min-height: 354px;
+    background: transparent;
+}
+
+.form-wrapper.login header.highlight { display: none; }
+
+.form-wrapper.login .facebook + .helper-text {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 12px;
+}
+
+.form-wrapper.login .fb_button,
+.form-wrapper.login .gplus_button,
+.form-wrapper.login .sso_button {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 12px;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+
+    color: #fff;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+
+    background-repeat: repeat-x;
+}
+.form-wrapper.login .fb_button {
+    border: 1px solid #1f2c4b;
+    background-color: mix(#435f9b, #354e89, 60%);
+    background-image: -moz-linear-gradient(top, #435f9b, #354e89);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#435f9b), to(#354e89));
+    background-image: -webkit-linear-gradient(top, #435f9b, #354e89);
+    background-image: -o-linear-gradient(top, #435f9b, #354e89);
+    background-image: linear-gradient(to bottom, #435f9b, #354e89);
+}
+.form-wrapper.login .gplus_button {
+    padding-top: 0;
+    border: 1px solid #b12918;
+    background-color: mix(#dd4b39, #cd3e2c, 60%);
+    background-image: -moz-linear-gradient(top, #dd4b39, #cd3e2c);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dd4b39), to(#cd3e2c));
+    background-image: -webkit-linear-gradient(top, #dd4b39, #cd3e2c);
+    background-image: -o-linear-gradient(top, #dd4b39, #cd3e2c);
+    background-image: linear-gradient(to bottom, #dd4b39, #cd3e2c);
+}
+.form-wrapper.login .sso_button {
+    padding-top: 0;
+    border: 1px solid #222;
+    background-color: #444;
+}
+
+.form-wrapper.login .fb_button img,
+.form-wrapper.login .gplus_button img,
+.form-wrapper.login .sso_button img { display: none; }
+
+.form-wrapper.login .login-form header {
+    margin-top: 12px;
+    margin-bottom: 10px ;
+    font-size: 12px;
+}
+
+.form-wrapper.login input.btn.blue {
+    padding: 0;
+    margin: 12px 0 21px;
+}
+
+.form-wrapper.login a.forgot-password,
+.form-wrapper.login .need-help,
+.form-wrapper.login .join { font-size: 14px; }
+
+section.business-account {
+    padding: 0;
+    background: transparent;
+}
+
+/*
+    ======= FORGET PASSWORD PAGE ======
+*/
+
+#content.forgot_password_form {
+    padding-top: 20px;
+    background: #f7f6f2;
+}
+
+.form-wrapper.forgot-password {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background: transparent;
+}
+
+.form-wrapper.forgot-password header.highlight {
+    position: relative;
+    margin-bottom: 14px;
+    font-size: 20px;
+}
+
+.form-wrapper.forgot-password p.mobile-only {
+    margin-bottom: 14px;
+}
+
+.form-wrapper.forgot-password #email_address {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-wrapper.forgot-password .actions {
+    float: none;
+    margin: 0;
+}
+
+.form-wrapper.forgot-password .actions .cancel { display: none; }
+
+.form-wrapper.forgot-password .actions #submit_button {
+    width: 100%;
+    padding: 0;
+    margin-top: 12px;
+}
+
+/*
+    ======= FORGOT PASSWORD CONFIRMATION PAGE ======
+*/
+
+#content.forgot_password_confirmation {
+    padding-top: 20px;
+    background:#f7f6f2;
+}
+
+#content.forgot_password_confirmation .inner.module {
+    min-height: 300px;
+    background: transparent;
+}
+
+#content.forgot_password_confirmation p:first-child {
+    padding-top: 0;
+    font-size: 20px;
+}
+
+#content.forgot_password_confirmation p {
+    padding-top: 13px;
+    color: #2f2f2f;
+    text-align: left;
+    line-height: 16px;
+    font-family: 'proxima-nova-regular', 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+#content.forgot_password_confirmation .btn.blue {
+    margin: 20px 0 12px;
+    font-size: 18px;
+}
+
+/*
+    ======= RESET PASSWORD PAGE ======
+*/
+
+#content.reset_password {
+    padding-top: 20px;
+    background:#f7f6f2;
+}
+
+#content.reset_password .error { margin-top: 13px; }
+
+.form-wrapper.reset-password {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    background: transparent;
+    color: #2f2f2f;
+    font-family: 'proxima-nova-regular', 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+.form-wrapper.reset-password .highlight.mobile-only {
+    font-size: 20px;
+    font-family: inherit;
+}
+
+.form-wrapper.reset-password p.mobile-only { margin: 12px 0 19px; }
+
+.form-wrapper.reset-password .actions {
+    width: 92%;
+    margin-right: 0;
+}
+
+.form-wrapper.reset-password .actions .cancel {
+    float: left;
+    margin-top: 23px;
+    font-size: 18px;
+    font-family: 'proxima-nova-regular', 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+.form-wrapper.reset-password .actions #submit_button {
+    padding: 0;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+/*
+    ======= REGISTRATION PAGE ======
+*/
+
+#content.registration_form {
+    padding-top: 20px;
+    background:#f7f6f2;
+}
+
+#content.registration_form .form-wrapper form label:first-child,
+#content.registration_form .form-wrapper form label {
+    width: 100%;
+    margin: 0;
+    height: auto;
+}
+
+#content.registration_form .form-wrapper form input {
+    margin-bottom: 6px;
+}
+
+.registration_form .form-wrapper p.helper-text {
+    padding-top: 5px;
+    clear: both;
+}
+
+.form-wrapper.join {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    background: transparent;
+    padding: 0;
+    -moz-box-shadow: 0 0 0;
+    -webkit-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;
+}
+
+.form-wrapper.join .left {
+    position: relative;
+    width: 100%;
+    border: none;
+    padding: 0;
+    height: auto;
+}
+
+.form-wrapper.join .left:first-child {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.form-wrapper.join .left:first-child .helper-text {
+    color: #2f2f2f;
+    font-size: 12px;
+    margin-bottom: 6px
+}
+
+.form-wrapper.join .left:first-child .helper-text:last-of-type { color: #686869; }
+
+.form-wrapper.join .left:first-child .helper-text.disclaimer-social {
+    margin-top: 12px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #7b7b79;
+    color: #686869;
+}
+
+.form-wrapper.join .or { display: none; }
+
+.form-wrapper.join .join-email {
+    margin: 23px 0 0;
+    padding: 0;
+    background: #ebebeb;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #fff;
+    height: 40px;
+    color: #41444d;
+    line-height: 38px;
+
+    background-color: mix(#f2f2f2, #e5e5e5, 60%);
+    background-image: -moz-linear-gradient(top, #f2f2f2, #e5e5e5);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#e5e5e5));
+    background-image: -webkit-linear-gradient(top, #f2f2f2, #e5e5e5);
+    background-image: -o-linear-gradient(top, #f2f2f2, #e5e5e5);
+    background-image: linear-gradient(to bottom, #f2f2f2, #e5e5e5);
+    background-repeat: repeat-x;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    box-shadow: 0 1px 3px #9a9997;
+}
+
+.form-wrapper.join .point-of-entry {
+    margin-top: 18px;
+    color: #067AB4;
+    font-family: 'proxima-nova-bold', 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+.form-wrapper.join .easyclick {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 12px;
+}
+
+.form-wrapper.join .easyclick h2 {
+    margin-bottom: 14px;
+    font-size: 20px;
+    color: #2f2f2f;
+}
+
+.form-wrapper.join .easyclick ul {
+    list-style-image: url('../login_files/images/green-check.png');
+    list-style-position: inside;
+}
+
+.form-wrapper.join .easyclick li {
+    font-size: 13px;
+    color: #222;
+}
+
+#content .form-wrapper.join input.btn.blue {
+    padding: 0;
+    margin: 12px 0 33px;
+    line-height: 35px;
+}
+
+/*
+    ======= ACCOUNT VERIFIED PAGE =======
+*/
+
+#content.confirm_email {
+    padding-top: 18px;
+    background: #f7f6f2;
+    min-height: 356px;
+    color: #2f2f2f;
+}
+
+#content.confirm_email:before {
+    content: "Account Verified";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    display: block;
+    width: 200px;
+    margin-left: -100px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#confirm_email { background: #f7f6f2; }
+
+#content.confirm_email h4.mobile-only {
+    margin-top: 0;
+    font: normal 18px 'proxima-nova-regular', 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+#content.confirm_email .btn.blue {
+    font-size: 18px;
+    color: #41444d;
+}
+
+/*
+    =======RESET PASSWORD INVALID PAGE =======
+*/
+#content.reset_password_invalid {
+    padding-top: 18px;
+    background: #f7f6f2;
+    min-height: 300px;
+    color: #2f2f2f;
+}
+#content.reset_password_invalid .inner.module {
+    background: transparent;
+}
+#content.reset_password_invalid .center {
+    text-align: left;
+}
+#content.reset_password_invalid .center p { margin: 0 0 30px; }
+
+#content.reset_password_invalid header.highlight {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    display: block;
+    width: 200px;
+    margin-left: -80px;
+    text-align: center;
+    font-size: 18px;
+    font-family: inherit;
+}
+
+/*
+    =======RESET PASSWORD SUCCESS PAGE =======
+*/
+#content.reset_password_success {
+    padding-top: 18px;
+    background: #f7f6f2;
+    min-height: 300px;
+    color: #2f2f2f;
+}
+#content.reset_password_success .inner.module {
+    width: auto;
+    background: transparent;
+}
+#content.reset_password_success .center p { margin: 30px 0; }
+
+/*
+    =======SIGNED IN AUTH PAGE =======
+*/
+#content.auth_container {
+    padding-top: 18px;
+    background: #f7f6f2;
+    min-height: 300px;
+    color: #2f2f2f;
+}
+#content.auth_container .inner.module {
+    text-align: left;
+    background: transparent;
+}
+#content.auth_container .inner.module h3 { margin: 0 0 30px; }
+
+/*
+    =======FIRST AND LAST NAMES PAGE =======
+*/
+#content.first-last-names {
+    position: relative;
+    padding-top: 18px;
+    background: #f7f6f2;
+    min-height: 300px;
+    color: #2f2f2f;
+}
+#content.first-last-names .inner.module {
+    text-align: left;
+    background: transparent;
+}
+.form-wrapper.first-last-names {
+    width: 100%;
+    height: auto;
+    min-height: 354px;
+    background: transparent;
+}
+.first-last-names .actions {
+    float: none;
+    margin: 20px 0;
+}
+.first-last-names #submit_button {
+    width: 100%;
+    margin-top: 20px;
+}
+.first-last-names p {
+    margin-bottom: 10px;
+}

@@ -25,7 +25,7 @@
                                         <div class="form-row clear">
                                             <label for="filename">
                                                 CSV File                        </label>
-                                            <input type="file" id="filename" name="filefield" value="" placeholder="Select a .csv file to import" />
+                                            <input type="file" id="filename" name="filefield" value="" placeholder="Select a .csv file to import" required />
 
                                         </div>
                                         <div class="form-row clear">
@@ -61,9 +61,8 @@
                                                 <sup>2</sup> Check if the first row in the table is the header. If checked, the application will skip the first row.</p>
                                         </div>
                                         <div class="form-row clear">
-                                            <!-- <input type="hidden" name="token" value=""> -->
                                             <input type="hidden" name="file_type" value="csv">
-                                            <input value="Next" type="submit">
+                                            <input value="Choose File" type="submit" disabled>
                                         </div>
                                     </form>
                                 </article> <!-- .box-body -->

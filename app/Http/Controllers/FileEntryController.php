@@ -49,6 +49,30 @@ class FileEntryController extends Controller {
 		return view('fileentries.paircolumns', compact('columns'));
 	}
 
+	public function upload($file){
+
+		
+
+		//$entry->save();
+		try {
+			$extension = $file->getClientOriginalExtension();
+			Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
+			$entry = new Fileentry();
+			$entry->mime = $file->getClientMimeType();
+			$entry->original_filename = $file->getClientOriginalName();
+			$entry->filename = $file->getFilename().'.'.$extension;
+			
+			if ( $entry->save() ){
+				return true;
+			}
+			else{
+				return false;
+			}
+		} catch (Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
 	// upload csv file and choose base table
 	public function add() {
 		
@@ -57,15 +81,14 @@ class FileEntryController extends Controller {
 		
 		
 		$file = Request::file('filefield');
-		if( $file !== null ){
-			$extension = $file->getClientOriginalExtension();
-		Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
-		$entry = new Fileentry();
-		$entry->mime = $file->getClientMimeType();
-		$entry->original_filename = $file->getClientOriginalName();
-		$entry->filename = $file->getFilename().'.'.$extension;
+		$hasUploaded = Fileentry::upload( $file );
+		if( $hasUploaded === true ){
+			$entry = Fileentry::where('filename', '=', $file)->firstOrFail();
+			$file = Storage::disk('local')->get($entry->filename);
+		}
 
-		$entry->save();
+		if( $file !== null ){
+			
 
 		// CsvReader
 		$filename = Request::file('filefield');

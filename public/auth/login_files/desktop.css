@@ -1,0 +1,768 @@
+/*
+	===== For Sheild desktop/tablet styling =====
+*/
+body,
+a.btn,
+button,
+input {
+	font-family: 'proxima-nova-regular','helvetica neue',helvetica,arial,sans-serif;
+}
+body {
+	background: #1d1d1d;
+	padding:0;
+	margin:0;
+}
+
+button, input, select, textarea {
+        margin: 0;
+}
+
+img {
+        border: 0 none;
+}
+
+img.ls_cmr_registration_logo {
+	width: 100%;
+	margin-top: 70px;
+}
+
+.pixel-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+a {
+	color: #067ab4;
+	text-decoration: none;
+}
+
+a.btn {
+        color: #000;
+        display: block;
+        text-decoration: none;
+}
+
+a.forgot-password {
+	font-size: 12px;
+}
+
+.need-help {
+	font-size: 12px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 30px;
+}
+
+a.reset-password {
+	font-size: 11px;
+}
+
+a.first-last-names {
+	font-size: 11px;
+}
+
+a.join {
+	font-family: 'proxima-nova-bold','helvetica neue',helvetica,arial,sans-serif;
+}
+
+a.cancel {
+	font-family: 'proxima-nova-bold','helvetica neue',helvetica,arial,sans-serif;
+	margin-right: 10px;
+}
+p { font-size: 14px; }
+h3 { font-size: 24px; }
+h4 {
+	font-family: 'proxima-nova-bold','helvetica neue',helvetica,arial,sans-serif;
+	font-size: 17px;
+	margin: 20px 0 10px;
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+#content {
+	margin-top: 57px;
+	padding-top: 40px;
+	padding-bottom:70px;
+	min-height:467px;
+	background: #edebdd;
+}
+.highlight{
+	font-size: 24px;
+}
+
+.fb_button{
+	background: #3d5994;
+  background-image: -o-linear-gradient(bottom, #435F9B 100%, #354F8A 100%);
+  background-image: -moz-linear-gradient(bottom, #435F9B 100%, #354F8A 100%);
+  background-image: -webkit-linear-gradient(bottom, #435F9B 100%, #354F8A 100%);
+  background-image: -ms-linear-gradient(bottom, #435F9B 100%, #354F8A 100%);
+  background-image: linear-gradient(to bottom, #435F9B 100%, #354F8A 100%);
+  width: 100%;
+  height: 40px;
+  text-align: center;
+	border-radius: 2px;
+}
+
+.gplus_button{
+  margin-top: 1px;
+  background: #d73d32;
+  background-image: -o-linear-gradient(bottom, #C93E34 100%, #B33329 100%);
+  background-image: -moz-linear-gradient(bottom, #C93E34 100%, #B33329 100%);
+  background-image: -webkit-linear-gradient(bottom, #C93E34 100%, #B33329 100%);
+  background-image: -ms-linear-gradient(bottom, #C93E34 100%, #B33329 100%);
+  background-image: linear-gradient(to bottom, #C93E34 100%, #B33329 100%);
+  width: 100%;
+	height: 40px;
+	text-align: center;
+  border-radius: 2px;
+}
+
+.sso_button {
+  margin-top: 1px;
+  background: #444;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.gplus_button:hover {
+  background: #AA3128;
+}
+
+.fb_button:hover {
+  background: #324F8B;
+}
+
+.sso_button:hover {
+  background: #333;
+}
+
+.gplus_button .helper,
+.fb_button .helper,
+.sso_button .helper {
+  display: inline-block;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.gplus_button img,
+.fb_button img,
+.sso_button img {
+  vertical-align: middle;
+}
+
+/*
+	===== clearfix specs =====
+*/
+.clearfix { display: block; }
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.clearfix:after { clear: both; }
+/*
+	===== desktop/mobile switches =====
+*/
+.desktop-only p {
+	margin: 0;
+}
+.mobile-only { display: none; }
+/*
+	===== fonts =====
+*/
+@font-face{
+	font-family: 'proxima-nova-regular';
+	src: url('../login_files/fonts/ProximaNova-Light-webfont.eot');
+	src: url('../login_files/fonts/ProximaNova-Light-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../login_files/fonts/ProximaNova-Light-webfont.woff') format('woff'),
+	url('../login_files/fonts/ProximaNova-Light-webfont.ttf') format('truetype'),
+	url('../login_files/fonts/ProximaNova-Light-webfont.svg#proxima_nova_rgregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'proxima-nova-bold';
+	src: url('../login_files/fonts/ProximaNova-Sbold-webfont.eot');
+	src: url('../login_files/fonts/ProximaNova-Sbold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../login_files/fonts/ProximaNova-Sbold-webfont.woff') format('woff'),
+	url('../login_files/fonts/ProximaNova-Sbold-webfont.ttf') format('truetype'),
+	url('../login_files/fonts/ProximaNova-Sbold-webfont.svg#proxima_nova_rgbold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'proxima-nova-light';
+	src: url('../login_files/fonts/ProximaNova-Thin-webfont.eot');
+	src: url('../login_files/fonts/ProximaNova-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../login_files/fonts/ProximaNova-Thin-webfont.woff') format('woff'),
+	url('../login_files/fonts/ProximaNova-Thin-webfont.ttf') format('truetype'),
+	url('../login_files/fonts/ProximaNova-Thin-webfont.svg#proxima_nova_ltlight') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/*
+	===== YP Header styling =====
+*/
+#ls-banner{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 57px ;
+	width: 100%;
+	background: #42b2e4;
+	border-bottom: 1px solid #77766f;
+	-webkit-box-shadow: 0 1px 3px #9a9997;
+	-moz-box-shadow: 0 1px 3px #9a9997;
+	box-shadow: 0 1px 3px #9a9997;
+}
+
+#ls-banner .logo{
+	height: 60px;
+	width: 60px;
+	background-color: #000000;
+	background-image:url('../login_files/images/ls_logo.png');
+	background-repeat: no-repeat;
+	background-position: 7px center;
+	float: left;
+	-webkit-box-shadow: 0 1px 3px #42b2e4;
+	-moz-box-shadow: 0 1px 3px #42b2e4;
+	box-shadow: 0 1px 3px #42b2e4;
+}
+
+#bottom-banner{
+	height: 45px;
+	background: #231f20;
+	width: 100%;
+}
+
+/*
+	===== YP Footer styling =====
+*/
+#ls-footer {
+	padding: 50px 0;
+	background: #1d1d1d;
+	color: #666;
+}
+
+#ls-footer section header {
+	font-size: 10px;
+	line-height: 16px;
+	margin-bottom: 20px;
+	color: #42b2e4;
+	text-transform: uppercase;
+}
+
+#ls-footer ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#ls-footer section a {
+	font-size: 14px;
+	line-height: 18px;
+}
+#ls-footer a { color: #fff; }
+
+#ls-footer .fineprint {
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+}
+
+/*
+	===== inner and module styles =====
+*/
+.inner.module{
+	width: 360px;
+	height: 465px;
+	text-align: center;
+}
+
+.admin .inner.module {
+	height: auto;
+	padding-bottom: 30px;
+}
+#confirm_email {
+	width: 400px;
+	padding: 20px;
+	text-align: left;
+}
+/*
+	===== form-wrapper styles =====
+*/
+.form-wrapper, .inner{
+	background:#f7f6f2;
+	border: 1px solid #d7d5c8;
+	margin: 0 auto;
+}
+
+.form-wrapper.join{
+	width: 700px;
+	height: 642px;
+	padding: 30px 30px 0 30px;
+}
+
+.form-wrapper.login{
+	position: relative;
+	width: 400px;
+	height: 525px;
+}
+
+.form-wrapper.forgot-password{
+	width : 400px;
+	height: 465px;
+}
+
+.form-wrapper.reset-password{
+	width : 400px;
+	height: 465px;
+}
+
+.form-wrapper.first-last-names{
+	width : 400px;
+	height: 465px;
+}
+
+.form-wrapper.find-user, .form-wrapper.superuser {
+  width: 400px;
+  text-align: center;
+  padding: 36px 30px 30px;
+}
+
+.form-wrapper label {
+        float: left;
+        margin-bottom: 12px;
+        width: 100%;
+}
+/*
+	===== other general styles =====
+*/
+.actions{
+	float: right;
+	margin-right: 35px;
+}
+
+.business-account a{
+	color: #2f2f2f;
+}
+
+
+section.left{
+	float: left;
+	width: 300px;
+}
+
+section.right{
+	float: right;
+	width: 300px;
+	margin: 75px 0 0 0;
+}
+
+section.right header{
+	font-size: 22px;
+}
+
+section.right ul{
+	font-size: 14px;
+	margin-left: -35px;
+}
+
+section.right ul li{
+	margin-bottom: 8px;
+}
+
+section.center{
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 30px 30px 0 30px;
+}
+
+section.center a.btn.blue,
+section.center input.btn.blue
+{
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+section.business-account{
+	position: absolute;
+	background: #fff;
+	width: 100%;
+	padding: 15px 30px 15px 30px;
+	bottom: 0;
+	border-bottom: 1px solid #d7d5c8;
+}
+
+.regform input, .login-form input, .first-last-names input, .forgot-password input, .reset-password input {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.regform header, .login-form header{
+	margin: 20px 0 5px 0;
+}
+/*
+	===== Blue submit/input/button styling =====
+*/
+a.btn.blue,
+input.btn.blue,
+button.btn.blue{
+	background: #42b2e4;
+	border-top: 1px solid #9a9997;
+	border-right: 1px solid #eae9e6;
+	border-bottom: 1px solid #d2d1ce;
+	border-left: 1px solid #eae9e6;
+	font-size: 20px;
+	line-height: 36.8px;
+	font-weight: bold;
+        box-shadow: 0 1px 3px #9a9997;
+        background-color: #42b2e4;
+        border: 1px solid #42b2e4;
+}
+
+a.btn.blue:hover,
+input.btn.blue:hover,
+button.btn.blue:hover{
+        background-color: #42b2e4;
+        border: 1px solid #9a9997;
+}
+
+button.btn.blue,
+.optout input.btn.blue {
+	float: right;
+	font-size: 18px;
+}
+
+.btn {
+	cursor: pointer;
+}
+
+.optout input.btn.blue {
+	width: 160px;
+}
+/*
+	===== forgot passowrd, reset password pages styling =====
+*/
+form label input, .forgot-password label input, .first-last-names label input, .reset-password label input {
+	border: 1px solid #cccbcb;
+	font-family: 'proxima-nova-regular','helvetica neue',helvetica,arial,sans-serif;
+	font-size: 17px;
+	line-height: 17px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.placeholder {
+        color: #999;
+}
+
+input.error{
+	border: 1px solid red;
+	background-color: #FDF4EE;
+}
+
+.form_error{
+	display: none;
+	font-family: 'proxima-nova-regular','helvetica neue',helvetica,arial,sans-serif;
+	box-shadow: 0 2px 4px rgba(51, 51, 51, 0.3);
+        color: #fff !important;
+	background-color: #ed5400;
+        font-size: 12px;
+	font-style: normal;
+	line-height: 12px;
+	padding: 10px 12px;
+	position: absolute;
+	margin: -12px 0 0 -8px;
+	top: 14px;
+	z-index: 1;
+}
+
+.form_error:after {
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: 100%;
+        top: 8px;
+        border-top: solid 7px transparent;
+        border-right: solid 7px #ed5400;
+        border-bottom: solid 7px transparent;
+}
+
+.registration_form .form-wrapper form label:first-child .form_error {
+        right: 172px;
+        width: 172px;
+}
+
+.registration_form .form-wrapper form label:first-child .form_error:after {
+        border-top: solid 7px transparent;
+        border-right: transparent;
+        border-left: solid 7px #ed5400;
+        border-bottom: solid 7px transparent;
+        right: -7px;
+}
+
+.registration_form .form_error {
+        right: -310px;
+	width: 290px;
+}
+
+.login_form label {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-bottom: 12px;
+}
+
+.login_form .form_error {
+        right: -310px;
+        width: 290px;
+}
+
+.forgot-password #submit_button {
+	width: 150px;
+}
+
+.reset-password #submit_button {
+	width: 150px;
+}
+
+.first-last-names #submit_button {
+	width: 150px;
+}
+
+p.point-of-entry a{
+	font-family: 'proxima-nova-bold','helvetica neue',helvetica,arial,sans-serif;
+}
+
+p.helper-text{
+	font-size: 11.5px;
+	color: #999;
+}
+
+/*
+	** OPT out page styling
+*/
+.optout { color: #2f2f2f; }
+.optout.form-wrapper { width: 520px; }
+.optout.form-wrapper section.center { padding: 36px 30px 30px; }
+.optout.form-wrapper section.center > p {
+	margin: 0;
+	padding: 0 0 22px;
+	border-bottom: 1px solid #acaca9;
+}
+.optout .highlight {
+	font-family: 'proxima-nova-regular','helvetica neue',helvetica,arial,sans-serif;
+	font-size: 24px;
+}
+
+.optout p,
+.optout fieldset { font-size: 14px; }
+.optout fieldset {
+	border: none;
+	padding: 30px 0 0;
+}
+.optout fieldset.unsubscribe .description { border-bottom: 1px solid #acaca9; }
+.optout fieldset.preference,
+.optout .clearfix.submit {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #acaca9;
+	width: 92%;
+	margin-left: 8%;
+}
+.optout .clearfix.submit {
+	border-bottom: none;
+	padding-top: 30px;
+}
+.optout form { border-top: 1px solid #fff; }
+.optout form p { margin-top: 5px; }
+.optout .description {
+	color: #666;
+	float: right;
+	width: 92%;
+	padding-bottom: 10px;
+}
+.optout .sub {
+	padding-left: 10%;
+}
+.optout header {
+	color: #2f2f2f;
+	font-family: 'proxima-nova-bold','helvetica neue',helvetica,arial,sans-serif;
+	font-size: 16px;
+}
+
+#form_result {
+  text-align: left;
+}
+
+/*
+	===== OPT out success pagestyling =====
+*/
+.optout_success .inner.module {
+	width: 460px;
+	height: auto;
+	padding: 36px 30px 30px;
+	text-align: left;
+}
+.optout_success .highlight { font-size: 24px; }
+.optout_success p { font-size: 14px; }
+
+.easyclick {
+        font-size: 21px;
+        line-height: 21px;
+        padding-bottom: 2ex;
+        padding-top: 8ex;
+        width: 92%;
+}
+
+.or {
+        background: none repeat scroll 0 0 #f7f6f2;
+        color: #999;
+        display: block;
+        font-size: 14px;
+        height: 5ex;
+        padding-top: 1.5ex;
+        position: absolute;
+        right: -0.7em;
+        top: 50%;
+}
+
+.registration_form .left {
+        border-right: medium none;
+        float: right;
+        padding-bottom: 15px;
+        padding-left: 30px;
+        padding-top: 0;
+        padding-right: 0;
+        width: 359px;
+}
+
+.registration_form .left:first-child {
+        border-right: 1px solid #bab9b6;
+        float: left;
+        height: 330px;
+        padding-left: 0;
+        padding-right: 30px;
+        position: relative;
+        width: 278px;
+}
+
+.registration_form .join {
+        width: 700px;
+}
+
+.registration_form .btn {
+        width: 100%;
+        display: block;
+}
+
+.registration_form .btn.blue {
+        margin: 20px 0 30px;
+}
+
+.registration_form input[type="text"],
+.registration_form input[type="password"],
+.registration_form input[type="email"] {
+        border: 1px solid #cccbcb;
+        font-size: 17px;
+        line-height: 17px;
+        padding: 8px 10px;
+        width: 100%;
+}
+
+.registration_form .form-wrapper form label:first-child,
+.registration_form .form-wrapper form label:first-child + label {
+        float: left;
+        width: 48%;
+}
+
+.registration_form .form-wrapper form label:first-child + label {
+        margin-left: 4%;
+}
+
+.registration_form .form-wrapper form label {
+        position: relative;
+        margin-bottom: 12px;
+        float: left;
+        width: 100%;
+}
+*, *:before, *:after {
+        box-sizing: border-box;
+}
+
+.registration_form section header {
+        color: #2f2f2f;
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 10px;
+}
+
+.registration_form .form-wrapper p {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.25em;
+        margin: 0;
+}
+
+.registration_form .form-wrapper p.helper-text {
+        color: #999;
+        font-size: 12px;
+        line-height: 14px;
+        margin: 6px 0 0 1px;
+}
+
+.registration_form .form-wrapper {
+        background-color: #f7f6f2;
+        box-shadow: 0 1px 3px rgba(51, 51, 51, 0.5);
+        margin: 0 auto;
+        padding: 40px 30px 10px;
+        height: auto;
+}
+
+.registration_form .join:before,
+.registration_form .join:after {
+        content: "";
+        display: table;
+        line-height: 0;
+}
+
+.registration_form .join:after {
+        clear: both;
+}
+
+/* .btn.facebook:hover, .fb_button:hover { */
+/*   background-color: #2b2b2b; */
+/*   background-image: linear-gradient(to bottom, #2b2b2b, #2b2b2b); */
+/*   background-repeat: repeat-x; */
+/* } */
+
+#error_msg {
+	background-color: #ed5400;
+	color: #fff;
+	padding: 1em;
+	display: none;
+}
+
+.ls-links {
+        text-align: center;
+        margin-bottom: 2em;
+}
+
+.reset_password_success .inner.module {
+        width: 380px;
+}
+
+.bold_text{
+		font-family: 'proxima-nova-bold';
+		font-weight: bold;
+}
