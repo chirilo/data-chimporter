@@ -18,6 +18,9 @@ class CreateFileentriesTable extends Migration {
 			$table->string('filename');
 			$table->string('mime');
 			$table->string('original_filename');
+			$table->text('basetable');
+			$table->text('basetable_headers');
+			$table->text('csv_headers');
 			$table->timestamps();
 		});
 	}

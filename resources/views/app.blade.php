@@ -46,86 +46,8 @@
   </head>
 
     <body>
-    <nav style="display: none" class="top-bar" data-topbar="" role="navigation">
-		<!-- Title -->
-		<ul class="title-area">
-			<li class="name"><h1><a href="#">CHimp</a></h1></li>
+    
 
-			<!-- Mobile Menu Toggle -->
-			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-		</ul>
-
-  		<!-- Top Bar Section -->
-  
-		<section class="top-bar-section">
-
-		    <!-- Top Bar Left Nav Elements -->
-		    <ul style="display:none;" class="left">
-
-		      <!-- Search | has-form wrapper -->
-		      <li class="has-form">
-		        <div class="row collapse">
-		          <div class="large-8 small-9 columns">
-		            <input type="text" placeholder="Find Stuff">
-		          </div>
-		          <div class="large-4 small-3 columns">
-		            <a href="#" class="alert button expand">Search</a>
-		          </div>
-		        </div>
-		      </li>
-		      <li class="has-form">
-		        <a class="button">Test</a>
-		      </li>
-		    </ul>
-
-		    <!-- Top Bar Right Nav Elements -->
-		    @if (Auth::guest())
-		    <ul class="right">
-		      <!-- Button -->
-		      <li class="has-form show-for-large-up">
-		        <a href="#" class="button">Try Me</a>
-		      </li>
-		    </ul>
-		    @else
-		    <ul class="right">
-				<!-- Divider -->
-				<li class="divider"></li>
-
-				<!-- Dropdown -->
-				<li style="" class="has-dropdown not-click"><a href="#">Item 1</a>
-					<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li><li class="parent-link hide-for-medium-up"><a class="parent-link js-generated" href="#">Item 1</a></li>
-						<li><label>Level One</label></li>
-						<li><a href="#">Sub-item 1</a></li>
-						<li><a href="#">Sub-item 2</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Sub-item 3</a></li>
-						<li class="has-dropdown not-click"><a href="#">Sub-item 4</a>
-							<!-- Nested Dropdown -->
-							<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li><li class="parent-link hide-for-medium-up"><a class="parent-link js-generated" href="#">Sub-item 4</a></li>
-								<li><label>Level Two</label></li>
-								<li><a href="#">Sub-item 2</a></li>
-								<li><a href="#">Sub-item 3</a></li>
-								<li><a href="#">Sub-item 4</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Sub-item 5</a></li>
-					</ul>
-				</li>
-
-				<li class="divider"></li>
-
-				<!-- Anchor -->
-				<li><a href="#">{{ Auth::user()->name }}</a></li>
-				<li class="divider"></li>
-
-				<!-- Button -->
-				<li class="has-form show-for-large-up">
-				<a href="/auth/logout" class="button">Logout</a>
-				</li>
-		    </ul>
-		    @endif
-		</section>
-	</nav>
 
 	<!-- <div class="contain-to-grid sticky" style="height: 48px; margin-bottom: 20px;">
 	<nav class="top-bar menu" data-topbar role="navigation" data-options="">
@@ -217,12 +139,7 @@
 			      
 			    $( tableTools.fnContainer() ).insertAfter('div.info');
 			} );
-	    	/*$('#').DataTable( {
-		        dom: 'T<"clear">lfrtip',
-		        tableTools: {
-		            "sSwfPath": "../chimporter/datatables_v1.10.7/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-		        }
-		    } );*/
+	    	
 	    } );
 	</script>
 	<script type="text/javascript">

@@ -4,7 +4,33 @@
 	<div class="row">
         <div class="large-12 columns">
 
+<<<<<<< HEAD
 					<section >
+=======
+				<div class="panel-body">
+					<section class="option-list">
+
+			            <ul>
+			                <li>
+			                    <a href="/csvtomysql" target="_self">CSV <em>to</em> MYSQL</a>
+			                </li>
+			                <!-- <li>
+			                    <a href="#" target="_self">MYSQL <em>to</em> CSV</a>
+			                </li>
+			                <li>
+			                    <a href="/xlstomysql" target="_self">XLS(X) <em>to</em> MYSQL</a>
+			                </li>
+			                <li>
+			                    <a href="#" target="_self">MYSQL <em>to</em> XLS(X)</a>
+			                </li>
+			                <li>
+			                    <a href="/xmltomysql" target="_self">XML <em>to</em> MYSQL</a>
+			                </li>
+			                <li>
+			                    <a href="#" target="_self">MYSQL <em>to</em> XML</a>
+			                </li> -->
+			            </ul>
+>>>>>>> 113746e4cb9293351c8a740f83309ca4a9780397
 
 			          <!--   <ul>
 			                <li class=""> -->
